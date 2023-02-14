@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IGeometry ArcGIS Javascript API</title>
+  <script src="https://js.arcgis.com/4.4"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
+</head>
+<body>
+  <h1>ArcGIS JS API</h1>
+  
+  <button id="satellite">Satallite Map</button>
+  <button id="street">Street Map</button>
+  <button id="oceans">Oceans</button>
+  <div id="mapview" style="width: 60%vw; height: 500px">Map Goes Here</div>
+  
+<script>
+  let map1;
+  let map2;
+  let map3;
+  let mapview;
+
+  require( ["esri/Map", "esri/views/MapView", "esri/views/SceneView"], 
+    (Map, MapView, map3d) => {
+
+      map1 = new Map({basemap: "satellite"})
+      map2 = new Map({basemap:"streets"})
+      map3 = new Map({basemap: "oceans"})
+      mapview = new MapView({container: "mapview", map: map1, zoom: 12,
+          center: [35.092777, -21.210822] 
+      });
+      sceneview = new map3d({container: "mapview", map: map1, zoom: 12,
+          center: [35.092777, -21.210822]
+      })
+    }
+  );
+  
+  document.getElementById("satellite").addEventListener('click', () => { sceneview.map = map1 });     
+  document.getElementById("street").addEventListener('click', () => { sceneview.map = map2 });
+  document.getElementById("oceans").addEventListener('click', () => { sceneview.map = map3 });
+</script>
+</body>
+</html>
