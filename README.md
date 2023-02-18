@@ -1,5 +1,5 @@
-# arcgis_3d_mapping_template
-ArcGIS 3D Globe Satellite | Oceans | Streets views
+# arcgis_3d_template
+ArcGIS 3D Satellite | Oceans | Streets views
 
 # basemap options:
 - streets
